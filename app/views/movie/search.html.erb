@@ -1,16 +1,15 @@
 <h2>Liste des résultats</h2>
 <ol>
 <% i = 0 %>
-<% @list = [{"id"=>396371, "title"=>"Molly's Game", "director"=>"Elliot Graham", "date"=>"2017-12-21", "poster"=>"/h9hUP5ZJGsjL2wbERrGlj4dMjZq.jpg"}, {"id"=>445571, "title"=>"Game Night", "director"=>"John Francis Daley", "date"=>"2018-02-22", "poster"=>"/85R8LMyn9f2Lev2YPBF8Nughrkv.jpg"}, {"id"=>343674, "title"=>"Gerald's Game", "director"=>"Mike Flanagan", "date"=>"2017-09-19", "poster"=>"/32dippiypDdaKv7XFEfUlQ7kPup.jpg"}, {"id"=>2649, "title"=>"The Game", "director"=>"Ceán Chaffin", "date"=>"1997-09-12", "poster"=>"/4b7QXyDJsDFXrwVHUNlrmezCZJC.jpg"}, {"id"=>80274, "title"=>"Ender's Game", "director"=>"Gavin Hood", "date"=>"2013-10-23", "poster"=>"/zHRNhCkrFEMoudPr0uics5WZe7j.jpg"}, {"id"=>205596, "title"=>"The Imitation Game", "director"=>"Morten Tyldum", "date"=>"2014-11-14", "poster"=>"/noUp0XOqIcmgefRnRZa1nhtRvWO.jpg"}, {"id"=>1535, "title"=>"Spy Game", "director"=>"Tony Scott", "date"=>"2001-11-18", "poster"=>"/hsb8hBeU3tkTX8SUYW6YYw6JPYD.jpg"}, {"id"=>13929, "title"=>"Geri's Game", "director"=>"Jan Pinkava", "date"=>"1997-11-24", "poster"=>"/1yqWnnRtbixqolHARRH4KymNBhj.jpg"}, {"id"=>38363, "title"=>"Fair Game", "director"=>"Doug Liman", "date"=>"2010-05-20", "poster"=>"/yE8uba2FkmFagMpeNNoo0cPyJ7D.jpg"}, {"id"=>230179, "title"=>"Big Game", "director"=>"Jalmari Helander", "date"=>"2014-09-05", "poster"=>"/uSeDj6wb67WyBuwwAw9Nhh76quA.jpg"}, {"id"=>10955, "title"=>"Ripley's Game", "director"=>"Liliana Cavani", "date"=>"2002-09-02", "poster"=>"/zk522u9U5wmXplwLZLddf30qClI.jpg"}, {"id"=>11859, "title"=>"Fair Game", "director"=>"Andrew Sipes", "date"=>"1995-11-03", "poster"=>"/ew0LrIN5fpxdimrErEy9Yry3Nn2.jpg"}, {"id"=>91010, "title"=>"Game Change", "director"=>"Jay Roach", "date"=>"2012-03-09", "poster"=>"/vnF5eG5A6NcLUqw3oJGoq6Br3WQ.jpg"}, {"id"=>456750, "title"=>"Game Over, Man!", "director"=>"Kyle Newacheck", "date"=>"2018-03-23", "poster"=>"/58BnnYeQOTzdMBghZIH1tSH0REx.jpg"}, {"id"=>11386, "title"=>"The Crying Game", "director"=>"Neil Jordan", "date"=>"1992-09-02", "poster"=>"/9Qqk3svM0I9QuabOPDNrJZdv3XJ.jpg"}, {"id"=>21712, "title"=>"Mind Game", "director"=>"Robin Nishi", "date"=>"2004-08-07", "poster"=>"/yG195r5lEfYN7HCf5XtDT050a9o.jpg"}, {"id"=>364470, "title"=>"Game Therapy", "director"=>"Ryan Travis", "date"=>"2015-10-22", "poster"=>"/5G7KsqvKRyEoC4eQJVV32VsSymF.jpg"}, {"id"=>13680, "title"=>"The Game Plan", "director"=>"Andy Fickman", "date"=>"2007-09-28", "poster"=>"/fcLFvIqCUrhY96mkSmr3okxaMEw.jpg"}, {"id"=>13253, "title"=>"Futurama: Bender's Game", "director"=>"Dwayne Carey-Hill", "date"=>"2008-11-03", "poster"=>"/11Hk76FncIaCkt3jmGLHvDPZE9i.jpg"}, {"id"=>46541, "title"=>"Game of Death", "director"=>"Giorgio Serafini", "date"=>"2010-11-27", "poster"=>"/z25FvJYpgfgibRYz1IBZHknZxme.jpg"}] %>
-
+<%     @list = SearchMovie.new(params[:movie_title] ).perform %>
   <% 20.times do %>
   <ul>
     <li><%= @list[i]["title"] %></li>
-    <li><%=@list[i]["poster"] %></li>
+    <li><%= @list[i]["date"] %></li>
     <li><%=@list[i]["director"] %></li>
-    <li><img src="https://image.tmdb.org/t/p/w200_and_h300_bestv2<%= @list[i]["date"] %>"></li>
-    
+    <img src="https://image.tmdb.org/t/p/w200_and_h300_bestv2<%=@list[i]["poster"] %>">
+  </ul>
+  <br>
     <% i+=1 %>
   <% end %>
-  </ul>
 </ol>
