@@ -18,7 +18,12 @@ class SearchMovie
       hash_movie = {}
       hash_movie["id"] = movie["id"]
       hash_movie["title"] = movie["title"]
-      hash_movie["director"] = Tmdb::Movie.credits(movie["id"])["crew"][0]["name"]
+      credit = Tmdb::Movie.credits(movie["id"])
+      if credit["crew"][0]["name"]
+        director = credit["crew"][0]["name"]
+      else director = nil
+      end
+      hash_movie["director"] = director
       hash_movie["date"] = movie["release_date"]
       hash_movie["poster"] = movie["poster_path"]
       @array_cleaned << hash_movie
