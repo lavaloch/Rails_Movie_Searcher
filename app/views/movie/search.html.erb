@@ -4,6 +4,7 @@
 <% @list = SearchMovie.new(params[:movie_title] ).perform %>
 <% if @list[0] != nil %>
   <% 20.times do %>
+  <li>
   <ul>
     <% if @list[i] != nil %>
     <li><%= @list[i]["title"] %></li>
@@ -13,6 +14,7 @@
     <% else %>
     <% end %>
   </ul>
+  </li>
   <br>
     <% i+=1 %>
   <% end %>
