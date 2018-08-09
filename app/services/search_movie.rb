@@ -5,7 +5,6 @@ class SearchMovie
   end
 
   def auth
-    puts ENV['API_KEY']
     Tmdb::Api.key(ENV['API_KEY'])
   end
 
