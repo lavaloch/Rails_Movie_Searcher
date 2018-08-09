@@ -19,8 +19,12 @@ class SearchMovie
       hash_movie["id"] = movie["id"]
       hash_movie["title"] = movie["title"]
       credit = Tmdb::Movie.credits(movie["id"])
-      if credit["crew"][0]["name"]
-        director = credit["crew"][0]["name"]
+      if !credit.empty?
+        if !credit["crew"].empty?
+          if credit["crew"][0]["name"]
+            director = credit["crew"][0]["name"]
+          end
+        end
       else director = nil
       end
       hash_movie["director"] = director

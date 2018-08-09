@@ -1,15 +1,22 @@
 <h2>Liste des résultats</h2>
 <ol>
 <% i = 0 %>
-<%     @list = SearchMovie.new(params[:movie_title] ).perform %>
+<% @list = SearchMovie.new(params[:movie_title] ).perform %>
+<% if @list[0] != nil %>
   <% 20.times do %>
   <ul>
+    <% if @list[i] != nil %>
     <li><%= @list[i]["title"] %></li>
     <li><%= @list[i]["date"] %></li>
     <li><%=@list[i]["director"] %></li>
     <img src="https://image.tmdb.org/t/p/w200_and_h300_bestv2<%=@list[i]["poster"] %>">
+    <% else %>
+    <% end %>
   </ul>
   <br>
     <% i+=1 %>
   <% end %>
+<% else %>
+<li>Désolé pas de résultats</li>
+<%end%>
 </ol>
